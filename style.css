@@ -1,0 +1,74 @@
+body {
+    background: rgb(5,5,5);
+    font-family: Helvetica;
+    color: rgb(117, 117, 117);
+}
+
+h1 {
+    color: rgb(143, 170, 104);
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 0;
+}
+
+h2 {
+    color: rgb(99, 109, 84);
+    font-weight: bold;
+}
+
+.box {
+    background-color: rgb(15,15,15);
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 40px;
+    padding-top: 25px;
+    border-radius: 20px;
+}
+
+p {
+    margin: 0;
+    line-height: 1.8;
+    color: #7c7c7c;
+}
+
+.date {
+    color: rgb(143, 170, 104);
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px;
+    max-width: none;
+}
+
+.loader {
+    border: 8px solid #d2eec0;
+    border-top: 8px solid rgb(143, 170, 104);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/*mobile*/
+@media screen and (max-width: 900px) {
+    .box {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .topbox {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+}

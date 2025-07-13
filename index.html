@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>No Leap Years</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+    <script type="module">
+      var loader = document.getElementById("loader");
+  
+      // Show loader initially
+      loader.style.display = "block";
+  
+      // Event listener for 'py:ready'
+      document.addEventListener('py:ready', function () {
+          // Hide loader once the Pyscript is ready
+          loader.style.display = "none";
+      });
+  </script>
+  
+  
+  
+</head>
+<body>
+    <br>
+    <h1 align="center">No Leap Years</h1>
+    <br>
+    <div class="box">
+    <p align="center">Without leap years, it might be around...<br>
+      <br>
+      <div class="loader" id="loader"></div>
+      <span class="date"><script type="py">
+        import datetime
+        from pyscript import display
+
+        # the number of estimated leap days from the Julian calendar, and later the Gregorian calendar.
+        leap_days = 513
+        # the estimated number of days from the pre-Julian Roman calendar.
+        # Calculated with the equation ((509-45)/2)*27.
+        before_Julian = 6254
+    
+        current_date = datetime.date.today()
+        year = int(current_date.strftime("%Y").replace(" 0", " "))
+    
+        if year % 4 != 0:
+            pass
+        elif year % 100 != 0:
+            leap_days += 1
+        elif year % 400 != 0:
+            pass
+        else:
+            pass
+    
+        no_leap = current_date - datetime.timedelta(days=(leap_days+before_Julian))
+        current_date = current_date.strftime("%A, %B %d, %Y").replace(" 0", " ")
+        print(f"Actual date: {current_date}")
+    
+        no_leap = datetime.datetime.strptime(str(no_leap), "%Y-%m-%d")
+        no_leap = no_leap.strftime("%A, %B %d, %Y").replace(" 0", " ")
+    
+        print(f"Without leap years, it might be around {no_leap}.")
+        display(no_leap)
+      </script>
+    </span>
+    </p>
+  </div>
+    <br>
+  <div class="box">
+    <p align="justify">You've probably wondered what the date would be without leap years.<br>
+    This website gives a rough estimate. Of course, it would be difficult to give a truly accurate date, and that's 
+    because of the history of leap years and their early adoption and utilization.
+    </p>
+    <br>
+    <h2 align="center">How Is This Calculated?</h2>
+    <p align="justify">
+        Leap years can be found in the ancient Roman calendar from before the Common Era.
+        However, they did not add a single day, but an entire month. This month,
+        Mercedonius, was said to be 27 days long. Though it was theoretically added every 2-3 years,
+        political corruption affected its actual usage. Because the Republic was formed
+        in ~509 BCE, I will estimate that this is when a formal calendar began usage.
+        Of course, they probably used a formal calendar with leap years far earlier.
+        In 45 BCE, the Julian calendar was created, and it added a leap year every
+        four years. However, for the first few decades of use leap years came every
+        three years. Thirteen leap years passed before they were temporarily paused
+        to realign with the Earth's rotation. The next leap year was in 7 CE.
+        There were 393 leap years in between 7 CE and 1582 CE in the Julian Calendar.
+        In 1582, the Gregorian calendar was introduced to the world. It had a new way
+        of calculating leap years. With the new rules, there are 107 leap years
+        between 1582 and 2023.
+        <br><br>
+        As you can guess, while it's easy to find all the leap days in the Julian
+        and Gregorian calendars and simply subtract them from the current date,
+        it's more difficult to estimate a date when taking into account the
+        pre-Julian Roman calendar.
+        <br><br>
+        
+        Here is the equation I used to calculate the date without leap years:<br>
+        \[ n - \left( \left( \frac{509 - 45}{2} \right) \cdot 27 + 513 \right) \]
+        where n = current amount of days passed since 0 CE. I subtracted 45 (the year the Julian calendar was created) 
+        from 509 (around when the Republic was formed) to get the estimated number of pre-Julian years (464), then divided it by 2
+        to get a rough idea of how many years featured Mercedonius (232). Being 27 days long, I multiplied 232 by 27 to get 6264,
+        then finally added that to the 513 leap days from the Julian and Gregorian calendars. 6264 is almost 17 years, while
+        513 is just short of a year and a half.
+    </p>
+    <h2 align="center">But Why?</h2>
+    <p>
+      Curiosity. Since I was little I wondered what the date would be without leap years. While a concrete answer
+      is probably impossible to find, I am happy with the estimates from this calculator. I also had fun researching
+      for this little project and learning about the history of these calendars. I hope you find it useful, or at the
+      very least interesting, even if I can't exactly guarantee accuracy.
+    </p>
+</div>
+</body>
+</html>
